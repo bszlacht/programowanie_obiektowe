@@ -66,7 +66,7 @@ public class World {
     }
 }
 
-class Vector2d {
+class Vector2d {    // ta klasa powinna być publiczna
     final public int x;
     final public int y;
 
