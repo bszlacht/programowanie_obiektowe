@@ -27,6 +27,6 @@ public class OptionsParser {
         }
         MoveDirection[] res = new MoveDirection[resList.size()];
         resList.toArray(res);
-        return res;
+        return res; // można return resList.toArray(new MoveDirection[0]);
     }
 }

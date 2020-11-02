@@ -14,15 +14,15 @@ public class Animal {
     }
 
     public void move(MoveDirection direction) throws IllegalArgumentException{
-        Vector2d tmp = new Vector2d(0,0);
+        Vector2d tmp = new Vector2d(0,0);   // nazwa tmp nic nie mówi
         switch (direction) {
             case RIGHT -> this.direction = this.direction.next();
             case LEFT -> this.direction = this.direction.previous();
-            case FORWARD -> tmp = tmp.add(this.direction.toUnitVector());
+            case FORWARD -> tmp = tmp.add(this.direction.toUnitVector());   // czemu add, a nie po prostu przypisanie?
             case BACKWARD -> tmp = tmp.subtract(this.direction.toUnitVector());
         }
         Vector2d newPosition = this.position.add(tmp);
-        System.out.println(tmp.toString());
+        System.out.println(tmp.toString()); // proszę usuwać takie rzeczy po debuggowaniu
         if(newPosition.correctPosition()) {
             this.position = newPosition;
         }
