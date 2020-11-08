@@ -1,4 +1,4 @@
-package lab1;
+/*package lab1;
 
 import org.junit.jupiter.api.Test;
 import agh.cs.lab1.*;
@@ -42,3 +42,4 @@ public class AnimalTest{
 
 
 }
+*/

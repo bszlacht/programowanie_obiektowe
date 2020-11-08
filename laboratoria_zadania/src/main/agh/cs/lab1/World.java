@@ -9,7 +9,16 @@ import java.util.Random;
 //
 public class World {
     public static void main(String[] args) {
-        Animal cat = new Animal();
+
+        MoveDirection[] directions = new OptionsParser().parse(args);
+        IWorldMap map = new RectangularMap(10, 5);
+        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
+        IEngine engine = new SimulationEngine(directions, map, positions);
+        engine.run();
+        System.out.print(map.toString());
+
+
+        /*Animal cat = new Animal();
         // wywołanie testujące
         //cat.move(MoveDirection.RIGHT);
         //cat.move(MoveDirection.FORWARD);
@@ -38,7 +47,7 @@ public class World {
                     break;
             }
         }
-        System.out.print(cat.toString());
+        System.out.print(cat.toString());*/
     }
 
         // ZADANIE 10:
@@ -48,7 +57,7 @@ public class World {
 
 
 
-
+//TODO: ODKOMENTOWAC TEST JESLI TRZEBA
 
 
 

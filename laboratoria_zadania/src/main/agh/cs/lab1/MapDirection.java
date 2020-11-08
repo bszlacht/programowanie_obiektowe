@@ -39,5 +39,13 @@ public enum MapDirection {
             case EAST -> new Vector2d(1,0);
         };
     }
+    public String toStringShort(){
+        return switch (this) {
+            case NORTH -> "^";
+            case SOUTH -> "v";
+            case WEST -> "<";
+            case EAST -> ">";
+        };
+    }
 }
 

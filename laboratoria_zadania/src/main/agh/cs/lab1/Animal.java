@@ -1,17 +1,28 @@
 package agh.cs.lab1;
 
 public class Animal {
+    //zmienne:
     private MapDirection direction;
     private Vector2d position;
+    private IWorldMap map;
+    //konstruktor:
 
-    public Animal(){
-        direction = MapDirection.NORTH;
-        position = new Vector2d(2,2);
+    public Animal(IWorldMap map, Vector2d initialPosition){
+        this.direction = MapDirection.NORTH;
+        this.position = initialPosition;
+        this.map = map;
     }
+
+
+
 
     public String toString(){
-        return "pozycja: " + this.position + ", orientacja: " + this.direction;
+        return this.direction.toStringShort();
     }
+
+
+
+
 
     public void move(MoveDirection direction) throws IllegalArgumentException{
         Vector2d tmp = new Vector2d(0,0);
@@ -22,10 +33,12 @@ public class Animal {
             case BACKWARD -> tmp = tmp.subtract(this.direction.toUnitVector());
         }
         Vector2d newPosition = this.position.add(tmp);
-        System.out.println(tmp.toString());
-        if(newPosition.correctPosition()) {
+        if(this.map.canMoveTo(newPosition)) {
             this.position = newPosition;
         }
 
+    }
+    public Vector2d getPosition(){
+        return this.position;
     }
 }

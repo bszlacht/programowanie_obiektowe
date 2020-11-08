@@ -51,11 +51,6 @@ public class Vector2d {
     public Vector2d opposite(){
         return new Vector2d(-this.x, -this.y);
     }
-    public boolean correctPosition(){
-        if(this.x <= 4 && this.x >= 0 && this.y >= 0 && this.y <= 4){
-            return true;
-        }
-        return false;
-    }
+
 }
 
