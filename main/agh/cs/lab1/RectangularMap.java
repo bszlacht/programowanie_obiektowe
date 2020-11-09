@@ -19,7 +19,7 @@ public class RectangularMap implements IWorldMap { // implementuje interfejs IWo
 
     @Override
     public String toString(){
-        MapVisualizer mapToPrint = new MapVisualizer(this);
+        MapVisualizer mapToPrint = new MapVisualizer(this); // nie trzeba tego tworzyć co wywołanie
         return mapToPrint.draw(maxLowerLeft,maxUpperRight);
     }
 
@@ -44,7 +44,7 @@ public class RectangularMap implements IWorldMap { // implementuje interfejs IWo
     }
 
     @Override
-    public Object objectAt(Vector2d position) {
+    public Object objectAt(Vector2d position) { // podobna do poprzeniej metody
         Animal res = null;
         for(int i = 0; i < this.animalsList.size();i++){
             Animal test = animalsList.get(i);

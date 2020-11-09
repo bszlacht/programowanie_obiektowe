@@ -4,7 +4,7 @@ public class Animal {
     //zmienne:
     private MapDirection direction;
     private Vector2d position;
-    private IWorldMap map;
+    private IWorldMap map;  // to może być finalne
     //konstruktor:
 
     public Animal(IWorldMap map, Vector2d initialPosition){
@@ -12,7 +12,7 @@ public class Animal {
         this.position = initialPosition;
         this.map = map;
     }
-
+    //a drugi konstruktor?
 
 
 
@@ -25,7 +25,7 @@ public class Animal {
 
 
     public void move(MoveDirection direction) throws IllegalArgumentException{
-        Vector2d tmp = new Vector2d(0,0);
+        Vector2d tmp = new Vector2d(0,0);   // nazwa tmp nic nie mówi
         switch (direction) {
             case RIGHT -> this.direction = this.direction.next();
             case LEFT -> this.direction = this.direction.previous();

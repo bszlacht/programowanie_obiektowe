@@ -1,3 +1,4 @@
+// co się stało tym testom?
 /*package lab1;
 
 import org.junit.jupiter.api.Test;

@@ -1,8 +1,8 @@
 package agh.cs.lab1;
 
 public class SimulationEngine implements IEngine{
-    public MapDirection initialDirection;
-    public MoveDirection[] move;
+    public MapDirection initialDirection;   // do czego to służy?
+    public MoveDirection[] move;   // te pola nie powinny być publiczne
     public IWorldMap map;
     public Vector2d[] initialAnimalPosition;
 
