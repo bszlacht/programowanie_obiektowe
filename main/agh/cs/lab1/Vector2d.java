@@ -1,5 +1,7 @@
 package agh.cs.lab1;
 
+import java.util.Random;
+
 public class Vector2d {
     final public int x;
     final public int y;
@@ -52,5 +54,17 @@ public class Vector2d {
         return new Vector2d(-this.x, -this.y);
     }
 
+    static public Vector2d randInSquare(int from, int to){
+        int boundaries = to - from;
+        Random rand = new Random();
+
+        int rand_int1 = rand.nextInt(boundaries);
+        int rand_int2 = rand.nextInt(boundaries);
+
+
+        int x = from + rand_int1;
+        int y = from + rand_int2;
+        return new Vector2d(x, y);
+    }
 }
 
