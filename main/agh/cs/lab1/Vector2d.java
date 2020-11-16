@@ -54,7 +54,7 @@ public class Vector2d {
         return new Vector2d(-this.x, -this.y);
     }
 
-    static public Vector2d randInSquare(int from, int to){
+    static public Vector2d randInSquare(int from, int to){  // osobiście bym dla tego zrobił osobną klasę
         int boundaries = to - from;
         Random rand = new Random();
 

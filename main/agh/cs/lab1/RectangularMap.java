@@ -2,7 +2,7 @@ package agh.cs.lab1;
 import java.util.LinkedList;
 
 public class RectangularMap extends AbstractWorldMap { // implementuje interfejs IWorldMap
-    private final Vector2d maxUpperRight;
+    private final Vector2d maxUpperRight;   // czemu max?
     private final Vector2d maxLowerLeft;
 
     public RectangularMap(int width, int height){ // konstruktor

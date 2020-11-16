@@ -10,8 +10,8 @@ public class SimulationEngine implements IEngine{
         this.move = move;
         this.initialAnimalPosition = initialAnimalPosition;
         for(Vector2d pos:initialAnimalPosition){
-            Animal cat = new Animal(this.map,pos);
-            map.place(cat);
+            Animal cat = new Animal(this.map,pos);  // czemu cat?
+            map.place(cat); // a jeśli się nie uda dodać?
         }
     }
     public void run(){

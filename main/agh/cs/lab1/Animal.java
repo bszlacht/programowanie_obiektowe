@@ -7,7 +7,7 @@ public class Animal implements IMapElement{
     private final IWorldMap map;
     //konstruktor:
 
-    public Animal(IWorldMap map){
+    public Animal(IWorldMap map){   // DRY
         this.map = map;
         this.position = new Vector2d(2,2);
     }
@@ -22,7 +22,7 @@ public class Animal implements IMapElement{
         return this.direction.toStringShort();
     }
 
-    public String animalTestToString(){
+    public String animalTestToString(){ // takie metody nie powinny być publiczne, do testu wystarczy dostęp pakietowy (a najlepiej w ogóle nie powinno ich być, bo "Testy są dla kodu..."
         return "pozycja: " + this.position +", orientacja: " + this.direction;
     }
 

@@ -17,7 +17,7 @@ public class GrassField extends AbstractWorldMap {
 
         // teraz dodajemy:
         for(int i = 0; i < grassCount; i++){
-            boolean flag = false;
+            boolean flag = false;   // mało mówiąca nazwa
             while(!flag){ //
                 flag = this.addRandGrassInSquare();
             }
@@ -38,7 +38,7 @@ public class GrassField extends AbstractWorldMap {
 
 
     public String toString(){
-        int maxx=0;
+        int maxx=0; // lepiej operować na wektorach niż współrzędnych
         int maxy=0;
         int miny=Integer.MAX_VALUE;
         int minx=Integer.MAX_VALUE;
@@ -84,7 +84,7 @@ public class GrassField extends AbstractWorldMap {
     @Override
     public boolean canMoveTo(Vector2d position){
         // jesli sie miesci na mapie i pozycja jest pusta
-        return super.canMoveTo(position) ;
+        return super.canMoveTo(position) ;  // jeśli Pan chce korzystać wyłącznie z metody odziedziczonej, bez rozszerzania, to lepiej metodę po prostu pominąć
     }
 
 

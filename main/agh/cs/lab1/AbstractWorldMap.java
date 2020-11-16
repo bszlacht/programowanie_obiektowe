@@ -1,23 +1,26 @@
 package agh.cs.lab1;
+
 import java.util.LinkedList;
-public class AbstractWorldMap implements IWorldMap{
-    protected LinkedList<Animal> animalsList = new LinkedList<>();
+
+public class AbstractWorldMap implements IWorldMap {
+    protected LinkedList<Animal> animalsList = new LinkedList<>();  // to może być finalne
 
 
     public boolean isOccupied(Vector2d position) {
         return objectAt(position) != null;
     }
 
-    public boolean place(Animal animal){
-        if(this.canMoveTo(animal.getPosition())){
+    public boolean place(Animal animal) {
+        if (this.canMoveTo(animal.getPosition())) {
             this.animalsList.add(animal);
             return true;
         }
         return false;
     }
-    public boolean canMoveTo(Vector2d position){
+
+    public boolean canMoveTo(Vector2d position) {
         // jesli sie miesci na mapie i pozycja jest pusta
-        return (objectAt(position) == null || objectAt(position) instanceof Grass);
+        return (objectAt(position) == null || objectAt(position) instanceof Grass); // <=> !(objectAt instanceof Animal)
     }
 
     public Object objectAt(Vector2d position) {
@@ -29,8 +32,9 @@ public class AbstractWorldMap implements IWorldMap{
         }
         return res;
     }
-    public String toString(Vector2d lowerLeft, Vector2d upperRight){
-        MapVisualizer map = new MapVisualizer(this);
-        return map.draw(lowerLeft,upperRight);
+
+    public String toString(Vector2d lowerLeft, Vector2d upperRight) {   // błędny nagłówek toString
+        MapVisualizer map = new MapVisualizer(this);    // myląca nazwa zmiennej + nie trzeba tego tworzyć co wywołanie
+        return map.draw(lowerLeft, upperRight);
     }
 }
