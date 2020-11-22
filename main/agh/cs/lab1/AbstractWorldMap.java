@@ -4,7 +4,7 @@ import java.util.HashMap;
 public abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObserver{
     protected final LinkedList<Animal> animalsList = new LinkedList<>();
     private final MapVisualizer map = new MapVisualizer(this);
-    protected final HashMap<Vector2d, IMapElement> animalHashMap = new HashMap<>(); //
+    protected final HashMap<Vector2d, Animal> animalHashMap = new HashMap<>(); //
 
     public boolean isOccupied(Vector2d position) {
         return objectAt(position) != null;
@@ -38,7 +38,7 @@ public abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObser
 
     @Override
     public void positionChanged(Vector2d oldPosition, Vector2d newPosition){
-        IMapElement element = (IMapElement)this.objectAt(oldPosition);
+        Animal element = (Animal)this.objectAt(oldPosition);
         animalHashMap.remove(oldPosition);
         animalHashMap.put(newPosition,element);
     }
