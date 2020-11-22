@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.HashMap;
 
 
-public class GrassField extends AbstractWorldMap {
+public class GrassField extends AbstractWorldMap implements IPositionChangeObserver {
     private final int grassCount;
     private final LinkedList<Grass> grassList = new LinkedList<>(); // lista trawy
     private final HashMap<Vector2d, Grass> grassHashMap = new HashMap<>();

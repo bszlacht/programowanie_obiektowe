@@ -1,7 +1,7 @@
 package agh.cs.lab1;
 import java.util.LinkedList;
 
-public class RectangularMap extends AbstractWorldMap { // implementuje interfejs IWorldMap
+public class RectangularMap extends AbstractWorldMap implements IPositionChangeObserver { // implementuje interfejs IWorldMap
     private final Vector2d upperRight;
     private final Vector2d lowerLeft;
 
