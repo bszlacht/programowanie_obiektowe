@@ -1,5 +1,6 @@
 package agh.cs.lab1;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Vector2d {
@@ -46,6 +47,7 @@ public class Vector2d {
         Vector2d res = new Vector2d(this.x - other.x,this.y - other.y);
         return res;
     }
+
     public boolean equals(Object other){
         if(this == other) return true;
         return other instanceof Vector2d && this.x == ((Vector2d) other).x && this.y == ((Vector2d) other).y;
@@ -66,5 +68,14 @@ public class Vector2d {
         int y = from + rand_int2;
         return new Vector2d(x, y);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.x, this.y);
+    }
+
+
+
+
 }
 

@@ -2,38 +2,26 @@ package agh.cs.lab1;
 import java.util.LinkedList;
 
 public class RectangularMap extends AbstractWorldMap { // implementuje interfejs IWorldMap
-    private final Vector2d maxUpperRight;
-    private final Vector2d maxLowerLeft;
+    private final Vector2d upperRight;
+    private final Vector2d lowerLeft;
 
     public RectangularMap(int width, int height){ // konstruktor
-        this.maxUpperRight = new Vector2d(width - 1, height - 1);
-        this.maxLowerLeft = new Vector2d(0,0);
+        this.upperRight = new Vector2d(width - 1, height - 1);
+        this.lowerLeft = new Vector2d(0,0);
     }
 
     @Override
     public boolean canMoveTo(Vector2d position){
         // jesli sie miesci na mapie i pozycja jest pusta
-        return super.canMoveTo(position) && position.follows(maxLowerLeft) && position.precedes(maxUpperRight);
+        return super.canMoveTo(position) && position.follows(this.lowerLeft) && position.precedes(this.upperRight);
     }
 
-    @Override
-    public String toString(){
-        return super.toString(maxLowerLeft,maxUpperRight);
+    public Vector2d getLowerLeft(){
+        return this.lowerLeft;
+    }
+    public Vector2d getUpperRight(){
+        return this.upperRight;
     }
 
-    @Override
-    public boolean place(Animal animal){
-        return super.place(animal);
-    }
-
-    @Override
-    public boolean isOccupied(Vector2d position) {
-        return super.isOccupied(position);
-    }
-
-    @Override
-    public Object objectAt(Vector2d position) {
-        return super.objectAt(position);
-    }
 }
 

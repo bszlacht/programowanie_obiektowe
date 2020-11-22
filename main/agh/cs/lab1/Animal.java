@@ -1,30 +1,29 @@
 package agh.cs.lab1;
-
+import java.util.LinkedList;
 public class Animal implements IMapElement{
     //zmienne:
     private MapDirection direction;
     private Vector2d position;
     private final IWorldMap map;
+    LinkedList<IPositionChangeObserver> observersList = new LinkedList<>();
     //konstruktor:
 
     public Animal(IWorldMap map){
-        this.map = map;
-        this.position = new Vector2d(2,2);
+        this(map,new Vector2d(2,2));
     }
 
     public Animal(IWorldMap map, Vector2d initialPosition){
         this.direction = MapDirection.NORTH;
         this.position = initialPosition;
         this.map = map;
+
     }
 
     public String toString(){
         return this.direction.toStringShort();
     }
 
-    public String animalTestToString(){
-        return "pozycja: " + this.position +", orientacja: " + this.direction;
-    }
+
 
 
 
@@ -38,11 +37,25 @@ public class Animal implements IMapElement{
         }
         Vector2d newPosition = this.position.add(tworzacyPozycje);
         if(this.map.canMoveTo(newPosition)) {
+            this.positionChanged(this.getPosition(),newPosition);
             this.position = newPosition;
         }
 
     }
     public Vector2d getPosition(){
         return this.position;
+    }
+    public MapDirection getDirection(){return this.direction;}
+
+    public void addObserver(IPositionChangeObserver observer){
+        this.observersList.add(observer);
+    }
+    public void removeObserver(IPositionChangeObserver observer) {
+        this.observersList.remove(observer);
+    }
+    void positionChanged(Vector2d oldPosition, Vector2d newPosition){
+        for(IPositionChangeObserver observer : this.observersList){
+            observer.positionChanged(oldPosition, newPosition);
+        }
     }
 }

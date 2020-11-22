@@ -11,9 +11,13 @@ public class SimulationEngine implements IEngine{
         this.initialAnimalPosition = initialAnimalPosition;
         for(Vector2d pos:initialAnimalPosition){
             Animal cat = new Animal(this.map,pos);
-            map.place(cat);
+            if(!map.place(cat)){
+                System.out.print("nie udalo sie dodac ktoregos zwierzaka" + cat.getPosition() + cat.getDirection());
+                // nie wiem czy chodzi o to ,czy o wyrzucenie wyjątku
+            }
         }
     }
+
     public void run(){
         for(int i = 0; i < move.length ;i++){
             int animalNumber = i % initialAnimalPosition.length;
@@ -22,8 +26,9 @@ public class SimulationEngine implements IEngine{
                 cat.move(this.move[i]);
                 initialAnimalPosition[animalNumber] = cat.getPosition();
             }
-
         }
-
+        for(Vector2d pet: initialAnimalPosition){
+            System.out.print(pet);
+        }
     }
 }

@@ -17,8 +17,8 @@ public class AnimalTest{
         cat.move(MoveDirection.FORWARD);
         cat.move(MoveDirection.FORWARD);
         cat.move(MoveDirection.FORWARD);;
-        assertEquals("pozycja: (4,2), orientacja: Wschód", cat.animalTestToString());
-        // orientacja i pozycja się zgadza
+        assertEquals(MapDirection.EAST,cat.getDirection());
+        assertEquals(new Vector2d(4,2), cat.getPosition());
 
         Animal cat2 = new Animal(map,initPos);
         cat2.move(MoveDirection.RIGHT);
@@ -28,16 +28,16 @@ public class AnimalTest{
         cat2.move(MoveDirection.FORWARD);
         cat2.move(MoveDirection.FORWARD);
         cat2.move(MoveDirection.FORWARD);
-
-        assertEquals("pozycja: (4,2), orientacja: Wschód", cat2.animalTestToString());
+        assertEquals(MapDirection.EAST,cat2.getDirection());
+        assertEquals(new Vector2d(4,2), cat2.getPosition());
         // nie wychodzi poza mapę
 
         Animal cat3 = new Animal(map,initPos);
         cat3.move(MoveDirection.LEFT);
         cat3.move(MoveDirection.BACKWARD);
         cat3.move(MoveDirection.LEFT);
-
-        assertEquals("pozycja: (3,2), orientacja: Południe", cat3.animalTestToString());
+        assertEquals(MapDirection.SOUTH,cat3.getDirection());
+        assertEquals(new Vector2d(3,2), cat3.getPosition());
         // orientacja i pozycja się zgadza
     }
 

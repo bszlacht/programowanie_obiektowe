@@ -1,8 +1,10 @@
 package agh.cs.lab1;
 import java.util.LinkedList;
-public class AbstractWorldMap implements IWorldMap{
-    protected LinkedList<Animal> animalsList = new LinkedList<>();
-
+import java.util.HashMap;
+public abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObserver{
+    protected final LinkedList<Animal> animalsList = new LinkedList<>();
+    private final MapVisualizer map = new MapVisualizer(this);
+    protected final HashMap<Vector2d, IMapElement> animalHashMap = new HashMap<>(); //
 
     public boolean isOccupied(Vector2d position) {
         return objectAt(position) != null;
@@ -11,26 +13,33 @@ public class AbstractWorldMap implements IWorldMap{
     public boolean place(Animal animal){
         if(this.canMoveTo(animal.getPosition())){
             this.animalsList.add(animal);
+            this.animalHashMap.put(animal.getPosition(), animal);
+            animal.addObserver(this);
             return true;
         }
         return false;
     }
+
     public boolean canMoveTo(Vector2d position){
         // jesli sie miesci na mapie i pozycja jest pusta
-        return (objectAt(position) == null || objectAt(position) instanceof Grass);
+        return !(objectAt(position) instanceof Animal);
     }
 
     public Object objectAt(Vector2d position) {
-        Object res = null;
-        for (Animal test : this.animalsList) {
-            if (test.getPosition().equals(position)) {
-                res = test;
-            }
-        }
-        return res;
+        return this.animalHashMap.get(position);
     }
-    public String toString(Vector2d lowerLeft, Vector2d upperRight){
-        MapVisualizer map = new MapVisualizer(this);
-        return map.draw(lowerLeft,upperRight);
+
+    public abstract Vector2d getLowerLeft();
+    public abstract Vector2d getUpperRight();
+
+    public String toString(){
+        return map.draw(getLowerLeft(),getUpperRight());
+    }
+
+    @Override
+    public void positionChanged(Vector2d oldPosition, Vector2d newPosition){
+        IMapElement element = (IMapElement)this.objectAt(oldPosition);
+        animalHashMap.remove(oldPosition);
+        animalHashMap.put(newPosition,element);
     }
 }
