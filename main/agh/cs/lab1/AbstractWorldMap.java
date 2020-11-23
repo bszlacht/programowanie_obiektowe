@@ -2,7 +2,7 @@ package agh.cs.lab1;
 import java.util.LinkedList;
 import java.util.HashMap;
 public abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObserver{
-    protected final LinkedList<Animal> animalsList = new LinkedList<>();
+    protected final LinkedList<Animal> animalsList = new LinkedList<>();    // czy ta lista jest potrzebna?
     private final MapVisualizer map = new MapVisualizer(this);
     protected final HashMap<Vector2d, Animal> animalHashMap = new HashMap<>(); //
 
@@ -29,7 +29,7 @@ public abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObser
         return this.animalHashMap.get(position);
     }
 
-    public abstract Vector2d getLowerLeft();
+    public abstract Vector2d getLowerLeft();    // lepiej protected, "świat" nie potrzebuje tej metody
     public abstract Vector2d getUpperRight();
 
     public String toString(){
