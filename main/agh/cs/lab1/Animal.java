@@ -5,7 +5,7 @@ public class Animal implements IMapElement{
     private MapDirection direction;
     private Vector2d position;
     private final IWorldMap map;
-    LinkedList<IPositionChangeObserver> observersList = new LinkedList<>();
+    private final LinkedList<IPositionChangeObserver> observersList = new LinkedList<>();
     //konstruktor:
 
     public Animal(IWorldMap map){
@@ -34,12 +34,15 @@ public class Animal implements IMapElement{
             case LEFT -> this.direction = this.direction.previous();
             case FORWARD -> tworzacyPozycje = tworzacyPozycje.add(this.direction.toUnitVector());
             case BACKWARD -> tworzacyPozycje = tworzacyPozycje.subtract(this.direction.toUnitVector());
+            default -> throw new NullPointerException("Null passed as a move function parameter");
         }
         Vector2d newPosition = this.position.add(tworzacyPozycje);
         if(this.map.canMoveTo(newPosition)) {
             this.positionChanged(this.getPosition(),newPosition);
             this.position = newPosition;
-        }
+        }/*else{
+            throw new IllegalArgumentException("Animal cannot move to position " + this.position.toString());
+        }*/
 
     }
     public Vector2d getPosition(){
@@ -53,7 +56,7 @@ public class Animal implements IMapElement{
     public void removeObserver(IPositionChangeObserver observer) {
         this.observersList.remove(observer);
     }
-    void positionChanged(Vector2d oldPosition, Vector2d newPosition){
+    private void positionChanged(Vector2d oldPosition, Vector2d newPosition){
         for(IPositionChangeObserver observer : this.observersList){
             observer.positionChanged(oldPosition, newPosition);
         }

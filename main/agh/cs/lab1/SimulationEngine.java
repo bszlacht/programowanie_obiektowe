@@ -18,7 +18,7 @@ public class SimulationEngine implements IEngine{
         }
     }
 
-    public void run(){
+    public void run() throws IllegalArgumentException{
         for(int i = 0; i < move.length ;i++){
             int animalNumber = i % initialAnimalPosition.length;
             if(map.objectAt(initialAnimalPosition[animalNumber]) instanceof Animal){
