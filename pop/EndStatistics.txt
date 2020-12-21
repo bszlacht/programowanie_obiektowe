@@ -1,0 +1,1 @@
+// plik zapisany obok classes.main :)

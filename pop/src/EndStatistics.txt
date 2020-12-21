@@ -1,0 +1,1 @@
+kid Count:  228//  averager life's span of death animals:   76//   average energy:  6071//  average DNA: [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 5, 6, 6, 6, 6, 6, 7, 7, 7]//   average grass count:10//   average animals count:115//  

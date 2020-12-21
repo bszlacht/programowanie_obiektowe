@@ -1,0 +1,11 @@
+{
+	"width":200,
+	"height":200,
+	"jungleRatio":0.25,
+	"initialEnergy":300,
+	"moveEnergy":1,
+	"grassEnergy":500,
+	"startingAnimals":100,
+	"days":1000,
+	"delay":4
+}
