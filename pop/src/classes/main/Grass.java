@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Grass implements IMapElement{
     private final Vector2d position;
     private final long energyValue;
-    private final Map map;
+    private final Map map;  // po co trawie namiary na mapę?
     private final LinkedList<IPositionChangedObserver> observersList = new LinkedList<>();
 
     public Grass(Map map, Vector2d position, long energyValue){
@@ -33,7 +33,7 @@ public class Grass implements IMapElement{
         this.observersList.remove(observer);
     }
 
-    private void positionChanged(Vector2d oldPosition, Vector2d newPosition){
+    private void positionChanged(Vector2d oldPosition, Vector2d newPosition){   // czy trawa może zmienić pozycję?
         for(IPositionChangedObserver observer : this.observersList){
             observer.positionChanged(oldPosition, newPosition, this);
         }

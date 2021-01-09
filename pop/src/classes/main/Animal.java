@@ -1,4 +1,4 @@
-package classes.main;
+package classes.main;   // skoro ten pakiet zawiera klasy, to co zawierają inne pakiety?
 
 
 import java.util.ArrayList;
@@ -9,14 +9,14 @@ import java.util.Random;
 public class Animal implements IMapElement{
     private Vector2d position;
     private MapDirection direction; // {0,1,...,7}
-    public long energy; // days till dead, energy = 0 -> died
+    public long energy; // days till dead, energy = 0 -> died   // public?
     private final long startingEnergy;
     private final DNA dna;
     private final Map map;
     private final int moveEnergy;
     private int lifeLength = 0;
     public int kidCount = 0;
-    public LinkedList<Animal> kids = new LinkedList<>();
+    public LinkedList<Animal> kids = new LinkedList<>();    // j.w.
     private Animal kid;
     private int death = 0;
     private int dCount = 0;

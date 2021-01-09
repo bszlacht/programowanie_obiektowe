@@ -96,7 +96,7 @@ public class Map implements IPositionChangedObserver{
     //TODO: ZMIENIC NIEKTORE NA PRIVATE!
 
     // PLACERS AND ANIMAL MOVER:
-    public boolean birthAnimal(Animal father, Animal mother, Vector2d position){
+    public boolean birthAnimal(Animal father, Animal mother, Vector2d position){    // lepiej jak nazwa metody brzmi jak polecenie + czy to na pewno zadanie dla mapy?
         if(!this.isValid()){
             return false;
         }
@@ -346,7 +346,7 @@ public class Map implements IPositionChangedObserver{
 
     public LinkedList<Animal> getStrongestTwo(LinkedList<Animal> animalList){
         long maxEnergy = 0;
-        Animal father = new Animal(this,new Vector2d(0,0),10,10,new DNA(),this.moveEnergy);
+        Animal father = new Animal(this,new Vector2d(0,0),10,10,new DNA(),this.moveEnergy); // czy właśnie się urodziło nowe zwierzę?
         Animal mother = new Animal(this,new Vector2d(0,0),10,10,new DNA(),this.moveEnergy);
         for(Animal animal: animalList){
             if(animal.energy >= maxEnergy){
@@ -360,7 +360,7 @@ public class Map implements IPositionChangedObserver{
                 mother = animal;
                 maxEnergy = mother.energy;
             }
-        }
+        }   // a co z losowaniem w razie remisu?
         LinkedList<Animal> res = new LinkedList<Animal>();
         res.add(0,father);
         res.add(1,mother);

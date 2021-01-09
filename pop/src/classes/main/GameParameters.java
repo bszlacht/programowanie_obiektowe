@@ -10,7 +10,7 @@ import java.io.*;
 
 
 public class GameParameters {
-    public int width;
+    public int width;   // jeśli public, to final
     public int height;
     public double jungleRatio;
     public int initialEnergy;

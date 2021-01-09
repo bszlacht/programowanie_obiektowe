@@ -3,7 +3,7 @@ package classes.main;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class HashMapList<K, V> { // K - klucz, V - value
+public class HashMapList<K, V> { // K - klucz, V - value    // bardziej HashListMap
     private HashMap<K, LinkedList<V>> HashMapList;
 
     public HashMapList(){

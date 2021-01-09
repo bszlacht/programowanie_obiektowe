@@ -82,7 +82,7 @@ public class Vector2d {
         return this.wrapAround(map.getHeight(),map.getWidth());
     }
 
-    public boolean inJungle(Map map, Vector2d position){
+    public boolean inJungle(Map map, Vector2d position){    // czy to funkcjonalność wektora?
         Vector2d jungleLowerLeft = map.getJungleLoweLeft();
         Vector2d jungleUpperRight = map.getJungleUpperRight();
         if(position.precedes(jungleUpperRight) && position.follows(jungleLowerLeft)){

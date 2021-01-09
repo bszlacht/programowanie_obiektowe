@@ -36,7 +36,7 @@ public enum MapDirection {
     }
 
     public static MapDirection rand(){
-        return MapDirection.values()[(new Random()).nextInt(8)];
+        return MapDirection.values()[(new Random()).nextInt(8)];    // nowy obiekt co wywołanie
     }
 
     @Override
